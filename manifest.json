@@ -1,0 +1,48 @@
+{
+
+    "name": "YouTube_Audio",
+    "version": "1.0",
+    "description": "Only play audio without visual in YouTube",
+    "manifest_version": 2,
+
+    "icons":
+    {
+        "1": "icons/logo_1.png",
+        "2": "icons/logo_2.png",
+        "3": "icons/logo_3.png",
+        "4": "icons/logo_4.png"
+    },
+
+    "browser_action":
+    {
+        "default_icon": "icons/logo_2.png",
+        "default_title": "YouTube Audio"
+    },
+
+    "background":
+    {
+        "scripts": ["youtube.js"]
+    },
+
+    "permissions":
+    [
+        "tabs",
+        "activeTab",
+        "*://*/*",
+        "webRequest",
+        "webRequestBlocking",
+        "storage"
+    ],
+
+    "content_scripts":
+    [
+        {
+        "matches": ["*://*/*"],
+        "js": ["ycontent.js"],
+        "css": ["youtube.css"],
+        "run_at": "document_start",
+        "all_frames": true
+        }
+    ]
+
+}
